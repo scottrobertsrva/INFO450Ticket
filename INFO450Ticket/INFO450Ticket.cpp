@@ -41,7 +41,7 @@ public:
 // Static variables and constants initialize
 int TechSupportTicket::idGenerator = 1001;
 string TechSupportTicket::priorityStrings[3] = { "LOW","MEDIUM","HIGH" };
-string TechSupportTicket::categoryStrings[3] = { "SERVICE","APPLICAITON","ACCESS" };
+string TechSupportTicket::categoryStrings[3] = { "SERVER","APPLICAITON","ACCESS" };
 string TechSupportTicket::statusStrings[2] = { "OPEN" , "CLOSED" };
 
 // Function to display the ticket id
@@ -138,6 +138,7 @@ void TechSupportTicket::CaptureTicket() {
 
 void TechSupportTicket::CloseTicket() {
 	status = CLOSED;
+	cout << endl << "Ticket #" << id << " is now closed." << endl;
 }
 
 
@@ -227,6 +228,7 @@ int main()
 			ticketIndex++;
 		}
 		else {
+			cout << ticketIndex << " tickets were entered." << endl << endl;
 			ExtraCreditDisplay::DisplayExtraCreditData(tickets, ticketIndex);
 			cout << "------------------------------" << endl;
 			cout << "Ticket Listing:" << endl;
@@ -234,6 +236,7 @@ int main()
 			for (int i = 0; i < ticketIndex; i++) {
 				tickets[i].ShowTicket();
 			}
+			tickets[0].CloseTicket();
 		}
 	}
     return 0;
